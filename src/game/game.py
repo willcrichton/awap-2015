@@ -68,7 +68,7 @@ class Game:
         self.player = player
 
         hubs = deepcopy(G.nodes())
-        random.shuffle(hubs)
+        self.random.shuffle(hubs)
         self.hubs = hubs[:HUBS]
 
     def to_dict(self):
