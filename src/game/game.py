@@ -185,6 +185,7 @@ class Game:
                 pending_orders = self.state.get_pending_orders()
                 for i in range(0, len(pending_orders)):
                     if pending_orders[i].id == order.id:
+                        order = pending_orders[i]
                         del(pending_orders[i])
                         break
 
@@ -234,8 +235,9 @@ class Game:
         self.state.pending_orders = filter(positive, self.state.get_pending_orders())
 
         func = timeout(timeout=STEP_TIMEOUT)(self.player.step)
+        state_copy = deepcopy(self.state)
         try:
-            commands = func(deepcopy(self.state))
+            commands = func(state_copy)
         except:
             commands = []
 
