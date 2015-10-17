@@ -4,7 +4,7 @@ import json, csv, re, zlib, base64, requests
 app = Flask(__name__)
 game = None
 
-LOG_SERVER = 'http://unix2.andrew.cmu.edu:5000'
+LOG_SERVER = 'http://unix6.andrew.cmu.edu:5000'
 
 @app.route('/')
 def home():
